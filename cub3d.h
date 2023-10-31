@@ -24,18 +24,24 @@
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
 
+typedef struct s_game
+{
+	int	ch_pos[3]; // 0 = x pos | 1 = y pos | 3 = (char)redirect
+}	t_game;
+
 typedef struct s_data
 {
 	char	**all_map;
 	char	**map;
 	char	**redirect;
-	int		allmap_width;
-	int		allmap_height;
+	int		file_width;
+	int		file_height;
 	int		map_width;
 	int		map_height;
 	int		win_width;
 	int		win_height;
 	int		map_location;
+	t_game	g;
 }	t_data;
 
 // ---------------------------  main.c  ----------------------------//
@@ -50,6 +56,7 @@ void	ft_checkmap(t_data *data);
 
 // ---------------------  parser/check_map2.c  ---------------------//
 void	is_connected_map(t_data *d);
+void	check_player(t_data *data);
 
 // ---------------------  parser/get_map.c -------------------------//
 void	print_double_pointer(char **str);
@@ -58,4 +65,5 @@ void	get_all_map_size(t_data *data, char *address);
 void	set_directions(t_data *data);
 void	ft_getmap(t_data *d, int i);
 void	get_all_map(t_data *data, char *address);
+
 #endif
