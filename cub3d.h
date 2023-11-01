@@ -6,7 +6,7 @@
 /*   By: museker <museker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 19:06:09 by museker           #+#    #+#             */
-/*   Updated: 2023/10/26 19:06:10 by museker          ###   ########.fr       */
+/*   Updated: 2023/11/01 19:33:54 by museker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@
 
 typedef struct s_game
 {
-	int	ch_pos[3]; // 0 = x pos | 1 = y pos | 3 = (char)redirect
+	int		ch_pos[3]; // 0 = x pos | 1 = y pos | 3 = (char)redirect
+	void	*ptr;
+	void	*win;
 }	t_game;
 
 typedef struct s_data
@@ -34,6 +36,7 @@ typedef struct s_data
 	char	**all_map;
 	char	**map;
 	char	**redirect;
+	char	***r_paths;
 	int		file_width;
 	int		file_height;
 	int		map_width;
@@ -58,6 +61,9 @@ void	ft_checkmap(t_data *data);
 void	is_connected_map(t_data *d);
 void	check_player(t_data *data);
 
+// ---------------------  parser/chec.c  ---------------------//
+void	ft_checkdirect(t_data *data);
+
 // ---------------------  parser/get_map.c -------------------------//
 void	print_double_pointer(char **str);
 int		map_size(char **s);
@@ -66,4 +72,6 @@ void	set_directions(t_data *data);
 void	ft_getmap(t_data *d, int i);
 void	get_all_map(t_data *data, char *address);
 
+
+void	check_value_of_redirect(char ***s);
 #endif

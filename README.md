@@ -6,8 +6,12 @@
 - "+" Dosya içerisinde map yada redirectionlardan birisini silince segment yiyor.
 - "+" Mapin en aşağısına 0 girince segment yiyor.
 - "+" Mape girilen değerlerin doğruluğu kontrol edildi.
-- "-" mlx başlatıldı ve karakterin xy koordinat sisteminde konumu yeni bir datanın içerisinde tutuluyor.
 
 ## 01.11.2023
 
-- 
+- "+" Karakterin xy koordinat sisteminde konumu yeni bir datanın içerisinde tutuluyor.
+- "+" directionların arasında sadece newline olabilir.
+- "+" map kontrol tamamen bitti.
+- "+" directionların pathleri aynı olmayacak
+- "+" directionlardaki pathler ayrıldı ve içerisindeki değerler birbirlerine eşit mi diye kontrol edildi. (dosyanın olup olmadığı dahil değil)
+- "-" mlx başlatıldı.
