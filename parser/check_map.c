@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: museker <museker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:33:22 by museker           #+#    #+#             */
-/*   Updated: 2023/11/01 17:40:46 by museker          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:25:59 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_check_one_zero_map(t_data *d)
 	}
 }
 
-int	ft_check_directions2(t_data *d, int i)
+int	ft_check_redirects2(t_data *d, int i)
 {
 	if (ft_strnstr(d->redirect[i], "NO ", ft_strlen(d->redirect[i]))
 		|| ft_strnstr(d->redirect[i], "SO ", ft_strlen(d->redirect[i]))
@@ -80,7 +80,7 @@ int	ft_check_directions2(t_data *d, int i)
 	return (0);
 }
 
-void	ft_check_directions(t_data *d)
+void	ft_check_redirects(t_data *d)
 {
 	int	i;
 	int	count;
@@ -91,7 +91,7 @@ void	ft_check_directions(t_data *d)
 	i = -1;
 	while (d->redirect[++i])
 		if (!ft_strchr(d->redirect[i], '\t')
-			&& (ft_check_directions2(d, i)))
+			&& (ft_check_redirects2(d, i)))
 			count++;
 	i = -1;
 	while (d->redirect[++i])
@@ -99,18 +99,18 @@ void	ft_check_directions(t_data *d)
 		if (d->redirect[i][0] == '\n')
 			continue ;
 		else if (!ft_strchr(d->redirect[i], ' '))
-			ft_error("Error: Invalid direction", i, 0);
+			ft_error("Error: Invalid redirect", i, 0);
 		count2++;
 	}
 	if (count != count2)
-		ft_error("Error: Invalid direction", -1, -1);
+		ft_error("Error: Invalid redirect", -1, -1);
 }
 
 void	ft_checkmap(t_data *data)
 {
 	if (ft_strlen_one_zero_map(data, data->redirect) != 6)
-		ft_error("Error: Invalid direction", -1, -1);
-	ft_check_directions(data);
+		ft_error("Error: Invalid redirect", -1, -1);
+	ft_check_redirects(data);
 	ft_check_one_zero_map(data);
 	is_connected_map(data);
 	check_player(data);

@@ -6,7 +6,7 @@
 /*   By: museker <museker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:46:10 by museker           #+#    #+#             */
-/*   Updated: 2023/11/01 20:12:26 by museker          ###   ########.fr       */
+/*   Updated: 2023/11/02 12:29:15 by museker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_double_pointer(char **str)
 	if (!str)
 		return ;
 	while (str[++i])
-		printf("%s\n", str[i]);
+		printf("(%s)\n", str[i]);
 }
 
 int	map_size(char **s)
@@ -60,7 +60,7 @@ void	get_all_map_size(t_data *data, char *address)
 	data->file_height = i;
 }
 
-void	set_directions(t_data *data)
+void	set_redirects(t_data *data)
 {
 	int	i;
 	int	j;
@@ -87,13 +87,13 @@ void	ft_getmap(t_data *d, int i)
 	k = 0;
 	while (d->all_map[++i])
 	{
-		j = -1;
+		j = 0;
 		if (ft_strchr(d->all_map[i], '\t'))
 			ft_error("Error: Invalid map", i, -1);
 		if (!ft_strchr(d->all_map[i], '1') && !ft_strchr(d->all_map[i], '0'))
 			break ;
-		d->map[k] = malloc(d->file_width);
-		while (++j < d->file_width - 1)
+		d->map[k] = malloc(d->file_width + 1);
+		while (j < d->file_width - 1)
 		{
 			if (ft_strlen(d->all_map[i]) >= j && d->all_map[i][j] && (d->all_map[i][j] == '0'
 				|| d->all_map[i][j] == '1'|| d->all_map[i][j] == 'W' || d->all_map[i][j] == 'N'
@@ -111,13 +111,14 @@ void	ft_getmap(t_data *d, int i)
 				else
 					ft_error("Invalid argument in map!", i, j);
 			}
+			j++;
 		}
-		d->map[k][++j] = '\0';
+		j = d->file_width - 1;
+		d->map[k][j] = '\0';
 		k++;
 	}
 	d->map[k] = NULL;
 }
-
 
 void	get_all_map(t_data *data, char *address)
 {
