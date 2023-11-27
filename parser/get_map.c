@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: museker <museker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:46:10 by museker           #+#    #+#             */
-/*   Updated: 2023/11/02 12:29:15 by museker          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:53:08 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-void	print_double_pointer(char **str)
-{
-	int	i;
-
-	i = -1;
-	if (!str)
-		return ;
-	while (str[++i])
-		printf("(%s)\n", str[i]);
-}
-
-int	map_size(char **s)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
-}
 
 void	get_all_map_size(t_data *data, char *address)
 {

@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:54:52 by museker           #+#    #+#             */
-/*   Updated: 2023/11/27 10:26:16 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:04:27 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,6 @@ void	split_F(t_data *d, int i)
 void	split_color_code(t_data *d)
 {
 	int		i;
-	int		j;
-	int		e;
-	int		size;
 
 	i = -1;
 	d->c = malloc(sizeof(int) * 4);

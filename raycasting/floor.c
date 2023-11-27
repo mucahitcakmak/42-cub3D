@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:23:33 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/11/27 10:23:34 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:04:35 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	calc_color(int color, int rgb)
 
 void	set_color(int *texture, int *c_or_f)
 {
-	char	**split;
 	int		color;
 	int		i;
 

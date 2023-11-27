@@ -1,4 +1,3 @@
-
 #include "cub3d.h"
 
 void	mlx_define(t_data *data)
