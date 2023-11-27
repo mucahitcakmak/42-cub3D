@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LDFLAGS = -L./mlx -lmlx -framework AppKit -framework OpenGL
 LIBFT = libft/libft.a
 SRCS 	=	main.c parser/get_map.c  parser/check_map.c parser/check_map2.c\

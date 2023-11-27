@@ -6,13 +6,13 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:54:52 by museker           #+#    #+#             */
-/*   Updated: 2023/11/27 11:04:27 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:13:58 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	split_C(t_data *d, int i)
+void	split_c(t_data *d, int i)
 {
 	char	*tmp;
 	char	**tmptwo;
@@ -38,7 +38,7 @@ void	split_C(t_data *d, int i)
 	}
 }
 
-void	split_F(t_data *d, int i)
+void	split_f(t_data *d, int i)
 {
 	char	*tmp;
 	char	**tmptwo;
@@ -73,8 +73,8 @@ void	split_color_code(t_data *d)
 	d->f = malloc(sizeof(int) * 4);
 	while (d->r_paths[++i])
 	{
-		split_C(d, i);
-		split_F(d, i);
+		split_c(d, i);
+		split_f(d, i);
 	}
 	set_color(&d->ch->fl, d->f);
 	set_color(&d->ch->ce, d->c);

@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 07:50:57 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/11/27 10:23:57 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:48:14 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,15 @@ void	init_texture(t_data *d)
 			ft_error("Malloc!!", -1, -1);
 		ft_bzero(d->ch->texture[i], sizeof(int) * PIX * PIX);
 	}
-	my_xpm_to_img(d, 0, ft_strtrim(d->r_paths[get_value_redirect(d, "WE")][1], "\n")); // we
-	my_xpm_to_img(d, 1, ft_strtrim(d->r_paths[get_value_redirect(d, "EA")][1], "\n")); // ea
-	my_xpm_to_img(d, 2, ft_strtrim(d->r_paths[get_value_redirect(d, "NO")][1], "\n")); // no
-	my_xpm_to_img(d, 3, ft_strtrim(d->r_paths[get_value_redirect(d, "SO")][1], "\n")); // s0
-	d->ch->img_ptr = mlx_new_image(d->g.mlx, screenWidth, screenHeight);
+	my_xpm_to_img(d, 0,
+		ft_strtrim(d->r_paths[get_value_redirect(d, "WE")][1], "\n"), -1);
+	my_xpm_to_img(d, 1,
+		ft_strtrim(d->r_paths[get_value_redirect(d, "EA")][1], "\n"), -1);
+	my_xpm_to_img(d, 2,
+		ft_strtrim(d->r_paths[get_value_redirect(d, "NO")][1], "\n"), -1);
+	my_xpm_to_img(d, 3,
+		ft_strtrim(d->r_paths[get_value_redirect(d, "SO")][1], "\n"), -1);
+	d->ch->img_ptr = mlx_new_image(d->g.mlx, SCREENWIDTH, SCREENHEIGHT);
 	d->ch->data = (unsigned int *)mlx_get_data_addr(d->ch->img_ptr, \
 		&d->ch->bpp, &d->ch->size_l, &d->ch->endian);
 }
@@ -74,16 +78,16 @@ void	init_tmp(t_ch *m)
 {
 	int		i;
 
-	m->tmp = malloc(sizeof(int *) * screenHeight);
+	m->tmp = malloc(sizeof(int *) * SCREENHEIGHT);
 	if (m->tmp == NULL)
 		ft_error("Malloc!!", -1, -1);
 	i = -1;
-	while (++i < screenHeight)
+	while (++i < SCREENHEIGHT)
 	{
-		m->tmp[i] = malloc(sizeof(int) * screenWidth);
+		m->tmp[i] = malloc(sizeof(int) * SCREENWIDTH);
 		if (m->tmp[i] == NULL)
 			ft_error("Malloc!!", -1, -1);
-		ft_bzero(m->tmp[i], sizeof(int) * screenWidth);
+		ft_bzero(m->tmp[i], sizeof(int) * SCREENWIDTH);
 	}
 }
 

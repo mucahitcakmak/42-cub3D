@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:26:20 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/11/27 10:26:20 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:14:34 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	two_pointer_size(char **s)
 
 int	two_pointer_character_size(char **s)
 {
-	int sum;
+	int	sum;
 	int	i;
 	int	j;
 
@@ -51,12 +51,12 @@ int	two_pointer_character_size(char **s)
 	return (sum + i);
 }
 
-char *two_pointer_to_one_pointer(char **str)
+char	*two_pointer_to_one_pointer(char **str)
 {
-	char *s;
-	int i;
-	int j;
-	int nbr;
+	char	*s;
+	int		i;
+	int		j;
+	int		nbr;
 
 	i = 0;
 	nbr = -1;
@@ -73,8 +73,8 @@ char *two_pointer_to_one_pointer(char **str)
 
 void	split_direct(t_data *d)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = -1;
 	j = -1;
@@ -83,7 +83,6 @@ void	split_direct(t_data *d)
 	{
 		if (d->redirect[i][0] == '\n')
 			continue ;
-
 		d->r_paths[++j] = ft_split(d->redirect[i], ' ');
 		if (!d->r_paths[j] || !d->r_paths[j][0] || !d->r_paths[j][1]
 			|| d->r_paths[j][1][0] == '\n')

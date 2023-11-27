@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:07:18 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/11/27 10:26:11 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:13:11 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,12 @@ void	check_player(t_data *d)
 
 int	get_value_redirect(t_data *d, char *redirect)
 {
-	int i = -1;
+	int	i;
 
+	i = -1;
 	while (d->r_paths[++i])
-		if (!ft_strncmp(d->r_paths[i][0], redirect, ft_strlen(d->r_paths[i][0])))
+		if (!ft_strncmp(d->r_paths[i][0], redirect,
+			ft_strlen(d->r_paths[i][0])))
 			return (i);
 	return (-1);
 }

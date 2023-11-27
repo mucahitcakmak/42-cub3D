@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:46:10 by museker           #+#    #+#             */
-/*   Updated: 2023/11/27 10:53:08 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:45:25 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,30 +73,33 @@ void	ft_getmap(t_data *d, int i)
 			break ;
 		d->map[k] = malloc(d->file_width + 1);
 		while (j < d->file_width - 1)
-		{
-			if (ft_strlen(d->all_map[i]) >= j && d->all_map[i][j] && (d->all_map[i][j] == '0'
-				|| d->all_map[i][j] == '1'|| d->all_map[i][j] == 'W' || d->all_map[i][j] == 'N'
-				|| d->all_map[i][j] == 'S' || d->all_map[i][j] == 'E'))
-				{
-				d->map[k][j] = d->all_map[i][j];
-				}
-			else
-			{
-				if (!d->all_map[i][j] || d->all_map[i][j] == '\n')
-					while (j < d->file_width - 1)
-						d->map[k][j++] = '*';
-				else if (d->all_map[i][j] == ' ')
-					d->map[k][j] = '*';
-				else
-					ft_error("Invalid argument in map!", i, j);
-			}
-			j++;
-		}
+			ft_getmap2(d, &i, &j, &k);
 		j = d->file_width - 1;
 		d->map[k][j] = '\0';
 		k++;
 	}
 	d->map[k] = NULL;
+}
+
+void	ft_getmap2(t_data *d, int *i, int *j, int *k)
+{
+	if (ft_strlen(d->all_map[*i]) >= *j && d->all_map[*i][*j]
+		&& (d->all_map[*i][*j] == '0'
+		|| d->all_map[*i][*j] == '1' || d->all_map[*i][*j] == 'W'
+		|| d->all_map[*i][*j] == 'N' || d->all_map[*i][*j] == 'S'
+		|| d->all_map[*i][*j] == 'E'))
+		d->map[*k][*j] = d->all_map[*i][*j];
+	else
+	{
+		if (!d->all_map[*i][*j] || d->all_map[*i][*j] == '\n')
+			while (*j < d->file_width - 1)
+				d->map[*k][(*j)++] = '*';
+		else if (d->all_map[*i][*j] == ' ')
+			d->map[*k][*j] = '*';
+		else
+			ft_error("Invalid argument in map!", *i, *j);
+	}
+	(*j)++;
 }
 
 void	get_all_map(t_data *data, char *address)

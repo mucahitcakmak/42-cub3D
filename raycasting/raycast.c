@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 07:51:35 by museker           #+#    #+#             */
-/*   Updated: 2023/11/27 10:28:20 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:09:58 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_raycast(t_ch *c, int x)
 {
-	c->cam_x = 2 * x / (double)screenWidth - 1;
+	c->cam_x = 2 * x / (double)SCREENWIDTH - 1;
 	c->raydir_x = c->dir_x + c->pln_x * c->cam_x;
 	c->raydir_y = c->dir_y + c->pln_y * c->cam_x;
 	c->map_x = (int)c->pos_x;
