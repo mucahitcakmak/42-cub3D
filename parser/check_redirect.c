@@ -33,7 +33,7 @@ void	split_c(t_data *d, int i)
 		}
 		free(tmptwo);
 		if (j != 3)
-			ft_error("C wrong!!\n", -1, -1);
+			ft_error("C wrong!!", -1, -1);
 		d->c[++e] = '\0';
 	}
 }
@@ -59,7 +59,7 @@ void	split_f(t_data *d, int i)
 		}
 		free(tmptwo);
 		if (j != 3)
-			ft_error("F wrong!!\n", -1, -1);
+			ft_error("F wrong!!", -1, -1);
 		d->f[++e] = '\0';
 	}
 }
@@ -93,7 +93,7 @@ void	check_value_of_redirect(char ***s)
 		j = i;
 		while (s[++j])
 			if (!ft_strncmp(s[j][1], p, ft_strlen(s[j][1])))
-				ft_error("Error: redirect is not valid!!", -1, -1);
+				ft_error("redirect is not valid!!", -1, -1);
 	}
 }
 

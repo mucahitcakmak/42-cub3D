@@ -1,4 +1,4 @@
-NAME = cub3d
+NAME = cub3D
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 LDFLAGS = -L./mlx -lmlx -framework AppKit -framework OpenGL
@@ -49,4 +49,5 @@ fclean: clean
 	@make -C libft/ fclean
 
 re: fclean all
+
 .PHONY: fclean re all clean

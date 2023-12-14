@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 19:06:09 by museker           #+#    #+#             */
-/*   Updated: 2023/11/27 11:48:07 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:10:49 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void				ft_init(t_data *data, char *address);
 // ---------------------  parser/check_map_utils.c  ---------------------//
 int					ft_strlen_one_zero_map(t_data *data, char **s);
 int					ft_check_one_zero_map_2(t_data *d, int i, int j);
-void				print_double_pointer(char **str);
 int					map_size(char **s);
 
 // ---------------------  parser/check_map.c  ---------------------//
@@ -127,10 +126,12 @@ void				ft_check_redirects(t_data *d);
 void				ft_checkmap(t_data *data);
 
 // ---------------------  parser/check_map2.c  ---------------------//
-void				is_connected_map(t_data *d);
+void				is_connected_map(t_data *d, int i, int j);
 void				check_player2(t_data *d, int i, int j);
 void				check_player(t_data *d);
 int					get_value_redirect(t_data *d, char *redirect);
+int					c_o_z_m(t_data *d, int i, int j);
+void				ft_check_get_map(t_data *d, int i);
 
 // ---------------------  parser/chec_redirect.c  ---------------------//
 void				split_c(t_data *d, int i);
@@ -177,10 +178,9 @@ void				calc_ray(t_ch *c, int x);
 void				dda(t_data *d);
 
 // ---------------------  raycasting/run_util.c  ---------------------//
-void				err_exit(const char *str);
+void				ft_error2(int x, int y);
 void				my_xpm_to_img(t_data *d, int dir, char *wall, int y);
 void				draw_floor_ceil(t_ch *c);
-
 // ---------------------  raycasting/run.c  ---------------------//
 double				calc_dis(t_ch *c);
 void				calc_wall(t_ch *c);
